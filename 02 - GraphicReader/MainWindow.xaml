@@ -1,0 +1,125 @@
+﻿<Window x:Class="_02___GraphicReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_02___GraphicReader"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Margin="0" Padding="5">
+            <MenuItem Header="_Файл">
+                <MenuItem Header="_Открыть" Click="MenuItem_Click_OpenGraphic"/>
+                <MenuItem Header="_Сохранить" Click="MenuItem_Click_SaveGraphic"/>
+                <Separator/>
+                <MenuItem Header="_Выход" Click="MenuItem_Click_ExitGraphic"/>
+            </MenuItem>
+
+            <MenuItem Header="_Правка">
+                <MenuItem Header="Карандаш" Click="Button_Click_Inc"/>
+                <MenuItem Header="Ластик" Click="Button_Click_Eraser"/>
+                <MenuItem Header="Очистить все" Click="Button_Click_AllClear"/>
+            </MenuItem>
+            <!--
+            <MenuItem Header="_Справка"/>
+            -->
+        </Menu>
+        <ToolBarTray Grid.Row="1">
+            <ToolBar Margin="5" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="2" Padding="1" Click="Button_Click_Inc">
+                        <Image Source="Data/Карандаш.jpg"/>
+                    </Button>
+                    <Button Margin="2" Padding="1" Click="Button_Click_Eraser">
+                        <Image Source="Data/Ластик.jpg"/>
+                    </Button>
+                    <Button Margin="2" Padding="1" Click="Button_Click_AllClear">
+                        <Image Source="Data/Корзина.jpg"/>
+                    </Button>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5">
+                <ComboBox Margin="3" Padding="2" SelectedIndex="0" Width="100" SelectionChanged="ComboBox_SelectionChanged_Color">
+                    <ComboBoxItem>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Data/Цвет-черный.bmp"/>
+                            <TextBlock Grid.Column="2" Text="Черный"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Data/Цвет-красный.bmp"/>
+                            <TextBlock Grid.Column="2" Text="Красный"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Data/Цвет-синий.bmp"/>
+                            <TextBlock Grid.Column="2" Text="Синий"/>
+                        </Grid>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="10"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="Data/Цвет-желтый.bmp"/>
+                                <TextBlock Grid.Column="2" Text="Желтый"/>
+                            </Grid>                            
+                    </ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="1" Padding="1" Click="Button_Click_Small">
+                        <Image Source="Data/Тонкий.bmp"/>
+                    </Button>
+                    <Button Margin="1" Padding="1" Click="Button_Click_Medium">
+                        <Image Source="Data/Средний.bmp"/>
+                    </Button>
+                    <Button Margin="1" Padding="1" Click="Button_Click_Big">
+                        <Image Source="Data/Толстый.bmp"/>
+                    </Button>
+                </StackPanel>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="2" Padding="1" Click="MenuItem_Click_ExitGraphic">
+                        <Image Source="Data/Выход.bmp"/>
+                    </Button>                    
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility ="Auto">
+            <InkCanvas 
+            x:Name="graphicRead" 
+            Grid.Row="2" 
+            EditingMode="Ink"            
+            >
+            </InkCanvas>
+        </ScrollViewer>
+        
+    </Grid>
+</Window>
