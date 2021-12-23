@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Ink;
+using _02___GraficReader;
 
 namespace _02___GraphicReader
 {
@@ -27,52 +28,7 @@ namespace _02___GraphicReader
      * Дизайн приложения и, по желанию, дополнительную функциональность разработать самостоятельно.
      */
 
-    public class PropertyCanvas
-    {
-        InkCanvas inkCanvas;
-        public PropertyCanvas(InkCanvas inc)
-        {
-            inkCanvas = inc;
-        }
-        public void ColorDraw(int iDcolor)
-        {
-            switch (iDcolor)
-            {
-                case 1:
-                    inkCanvas.DefaultDrawingAttributes.Color = Colors.Red;
-                    break;
-                case 2:
-                    inkCanvas.DefaultDrawingAttributes.Color = Colors.Blue;
-                    break;
-                case 3:
-                    inkCanvas.DefaultDrawingAttributes.Color = Colors.Yellow;
-                    break;
-
-                default:
-                    inkCanvas.DefaultDrawingAttributes.Color = Colors.Black;
-                    break;
-            }
-        }
-        public void SizePen(double heigtPen, double widthPen)
-        {
-            inkCanvas.DefaultDrawingAttributes.Width = widthPen;
-            inkCanvas.DefaultDrawingAttributes.Height = heigtPen;
-        }
-        public void AllClear()
-        {
-            inkCanvas.Strokes.Clear();
-        }
-        public void Eraser()
-        {
-            inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
-        }
-        public void Pincil()
-        {
-            inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-        }
-
-    }
-
+   
     public partial class MainWindow : Window
     {
         
@@ -95,7 +51,7 @@ namespace _02___GraphicReader
             /*
              * Здесь не много не доразобрался может быть особенность Canvas:
              * Картинка открывается, но как подложка, т.е. рисовать на ней можно удалять (только только что нарисованное), 
-             * НО вот ее (подгруженную картинку) редактировать не получется.
+             * НО вот ее (подгруженную картинку) редактировать не получается.
              */
 
             try
