@@ -57,13 +57,13 @@ namespace TextReader
             {
                 return;
             }
-            if (texBox.FontWeight > FontWeight.FromOpenTypeWeight(400))
+            if (texBox.FontWeight != FontWeights.Normal)
             {
-                texBox.FontWeight = FontWeight.FromOpenTypeWeight(400);
+                texBox.FontWeight = FontWeights.Normal;
             }
             else
             {
-                texBox.FontWeight = FontWeight.FromOpenTypeWeight(700);
+                texBox.FontWeight = FontWeights.Bold;
             }
         }
 
@@ -85,7 +85,7 @@ namespace TextReader
 
         private void ButtonClick_UnderLine(object sender, RoutedEventArgs e)
         {
-            if(texBox == null)
+            if (texBox == null)
             {
                 return;
             }
@@ -123,7 +123,7 @@ namespace TextReader
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*";
-            if(openFileDialog.ShowDialog()==true)
+            if (openFileDialog.ShowDialog() == true)
             {
                 texBox.Text = File.ReadAllText(openFileDialog.FileName);
             }
